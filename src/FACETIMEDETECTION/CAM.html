@@ -30,20 +30,20 @@
     </style>
 </head>
 <body>
-<div id="my_camera"> //section webcam
+<div id="my_camera"> <!section webcam>
     <video autoplay="autoplay"></video>
 </div>
 
-<form>
+<form> <! boutton "s'identifier" ==> action = fonction snapshot>
     <input id="snap" type="button" value="S'identifier" onclick="snapshot()">
 </form>
  <br>
  <br>
-<! section contenant l'image prise>
-<div id="pics"></div>
+
+<div id="pics"></div> <! section contenant l'image prise>
 
 
-<script>
+<script> //fonction js qui active l'utilisation de la webcam
    Webcam.set({
 
        width: 400,
@@ -52,17 +52,17 @@
        jpeg_quality: 1080
    }) ;
 
-   Webcam.attach('#my_camera');
+   Webcam.attach('#my_camera'); // emplacement de la cam dans la div 'my_camera
 
 </script>
 
-<script>
+<script> // fonction snapshot() qui enregistre la capture
     function snapshot() {
 
         Webcam.snap(function (data_uri) {
 
             document.getElementById('pics').innerHTML =
-                '<img src ="'+data_uri+'"/>';
+                '<img src ="'+data_uri+'"/>'; // renvoie de l'image dans l'id 'pics'
         });
 
     }
