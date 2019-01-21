@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>FacetimeDetectionCam</title>
+    <script type="text/javascript" src="script.js"></script>
+
     <style type = "text/css">
 
-        body{
+        BODY{
 
-            margin: 200px auto ;
+            margin: 150px auto ;
             width: 400px;
 
         }
 
         #snap{
+            margin-left: 160px;
+        }
 
-            margin-left: 160px ;
+        #pics{
+
+            float: right;
+            width: 400px;
+            height: 350px;
+            BORDER : 1px solid;
         }
 
 
     </style>
 </head>
 <body>
-<div id="my_camera">
+<div id="my_camera"> //section webcam
     <video autoplay="autoplay"></video>
 </div>
 
-<script type="text/javascript" src="script.js"></script>
+<form>
+    <input id="snap" type="button" value="S'identifier" onclick="snapshot()">
+</form>
+ <br>
+ <br>
+<! section contenant l'image prise>
+<div id="pics"></div>
+
 
 <script>
    Webcam.set({
@@ -40,18 +56,13 @@
 
 </script>
 
-<form>
-    <input id="snap" type="button" value="S'identifier" onclick="snapshot()">
-</form>
-
-
 <script>
     function snapshot() {
 
         Webcam.snap(function (data_uri) {
 
-            document.getElementById('results').innerHTML =
-                '<h3>Pics</h3>' + '<img src ="'+data_uri+'"/>'
+            document.getElementById('pics').innerHTML =
+                '<img src ="'+data_uri+'"/>';
         });
 
     }
