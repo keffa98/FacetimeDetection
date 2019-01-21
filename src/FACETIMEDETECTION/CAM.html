@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FacetimeDetectionCam</title>
+    <style type = "text/css">
+
+        body{
+
+            margin: 200px auto ;
+            width: 400px;
+        }
+
+        #Stop{
+
+            float: right;
+            margin-right: 80px ;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="my_camera" style="width: 320px; height: 240px;">
+    <div></div>
+    <video autoplay="autoplay" style="width: 320px; height: 240px; "></video>
+</div>
+
+<script type="text/javascript" src="https://pixlcore.com/demos/webcamjs/webcam.min.js"></script>
+
+<script>
+   Webcam.set({
+
+       width: 320,
+       height: 240,
+       image_format:'jpeg',
+       jpeg_quality: 90
+   }) ;
+
+   Webcam.attach('#my_camera');
+
+</script>
+
+<form >
+    <input type="button" value="Snapshot" onclick="snapshot()">
+    <input id ="Stop" type="button" value="Stop">
+
+
+</form>
+
+
+<script>
+    function snapshot() {
+
+        Webcam.snap(function (data_uri) {
+
+            document.getElementById('results').innerHTML =
+                '<h3>Pics</h3>' + '<img src ="'+data_uri+'"/>'
+        });
+
+    }
+</script>
+
+
+
+</body>
+</html>

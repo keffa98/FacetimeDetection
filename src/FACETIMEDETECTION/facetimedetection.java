@@ -21,6 +21,7 @@ public class facetimedetection extends javax.swing.JFrame {
     MatOfByte mem = new MatOfByte();
     CascadeClassifier faceDetector = new CascadeClassifier(FaceDetection.class.getResource("haarcascade-fontalface_alt.xml")).getP;
     MatOfRect faceDetections = new MatOfRect();
+    MatOfRect faceDetections = new MatOfRect();
 
     public JPanel panel1;
     public JButton button2;
